@@ -1,4 +1,3 @@
-import { eventarc_v1beta1 } from "googleapis";
 import admin from "../config/firebase.js";
 import User from "../models/User.js";
 import { changeFile, deleteFile, uploadFile } from "../utils/file.js";
@@ -6,11 +5,11 @@ import Post from "./../models/Post.js";
 import Event from "../models/Event.js";
 import Join from "../models/Join.js";
 
-const bucket = admin.storage().bucket();
+// const bucket = admin.storage().bucket();
 
-const NUMBER_EVENT = 8;
+// const NUMBER_EVENT = 8;
 
-const NUMBER_JOIN_EVENT = 9;
+// const NUMBER_JOIN_EVENT = 9;
 
 export const createEvent = async (req, res) => {
   const eventName = req.body.eventName;
