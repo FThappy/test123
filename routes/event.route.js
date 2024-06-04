@@ -3,7 +3,7 @@ import multer from "multer";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 import { multerError } from "../utils/multerError.js";
-import { createEvent, createJoinEvent, deleteEventById, deleteJoinEvent, deleteJoinEventByOwner, eventSearch, eventSearchOwner, getCountUserJoinEvent, getEvent, getEventById, getEventOwner, getEventUserJoin, getJoinById, getTotalPageEvent, getTotalPageEventOwner, getTotalPageEventUserJoin, getUserJoinEvent,  updateEvent } from "../controllers/event.controller.js";
+// import { createEvent, createJoinEvent, deleteEventById, deleteJoinEvent, deleteJoinEventByOwner, eventSearch, eventSearchOwner, getCountUserJoinEvent, getEvent, getEventById, getEventOwner, getEventUserJoin, getJoinById, getTotalPageEvent, getTotalPageEventOwner, getTotalPageEventUserJoin, getUserJoinEvent,  updateEvent } from "../controllers/event.controller.js";
 
 const router = express.Router();
 
