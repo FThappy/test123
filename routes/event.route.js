@@ -49,7 +49,7 @@ router.get("/total-join", getCountUserJoinEvent);
 router.get("/list-users", getUserJoinEvent);
 router.get("/join", verifyToken, getJoinById);
 router.get("/total", getTotalPageEvent);
-router.get("/:eventId", getEventById)
+// router.get("/:eventId", getEventById)
 router.get("", getEvent);
 
 
