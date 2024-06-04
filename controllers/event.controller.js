@@ -1,135 +1,15 @@
 import { eventarc_v1beta1 } from "googleapis";
-import admin from "../config/firebase.js";
 import User from "../models/User.js";
 import { changeFile, deleteFile, uploadFile } from "../utils/file.js";
 import Post from "./../models/Post.js";
 import Event from "../models/Event.js";
 import Join from "../models/Join.js";
 
-const bucket = admin.storage().bucket();
 
 const NUMBER_EVENT = 8;
 
 const NUMBER_JOIN_EVENT = 9;
 
-export const createEvent = async (req, res) => {
-  const eventName = req.body.eventName;
-  const timeStart = new Date(req.body.timeStart);
-  const timeEnd = new Date(req.body.timeEnd);
-  const city = req.body.city;
-  const address = req.body.address;
-  const description = req.body.description;
-  const file = req.files;
-  const time = new Date().getTime();
-  try {
-    const user = await User.findOne({ _id: req.userId.id });
-    if (!user) {
-      return res.status(404).json({ message: " User not exist", code: 3 });
-    }
-    if (!eventName || !timeStart || !timeEnd || !city || !address) {
-      return res
-        .status(400)
-        .json({ message: "Không đầy đủ thông tin", code: 2 });
-    }
-    const promises = file.map(async (file, index) => {
-      const url = await uploadFile(file, index, time, req.userId.id, "event");
-      return url;
-    });
-    const urlFile = await Promise.all(promises);
-    const newEvent = new Event({
-      userId: req.userId.id,
-      eventName: eventName,
-      timeStart: timeStart,
-      timeEnd: timeEnd,
-      city: city,
-      address: address,
-      wallImg: urlFile,
-      filePath: `event-${req.userId.id}-${time}`,
-    });
-    if (description) {
-      newEvent.description = description;
-    }
-    await newEvent.save();
-    return res
-      .status(200)
-      .json({ message: "Success post", code: 0, event: newEvent });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Server error", code: 4 });
-  }
-};
-
-export const updateEvent = async (req, res) => {
-  const eventName = req.body.eventName;
-  const timeStart = new Date(req.body.timeStart);
-  const timeEnd = new Date(req.body.timeEnd);
-  const city = req.body.city;
-  const address = req.body.address;
-  const description = req.body.description;
-  const newFile = req.files;
-  const imageRemove = req.body.imageRemove;
-  const eventId = req.query.eventId;
-  console.log(city);
-  try {
-    const event = await Event.findOne({ _id: eventId, userId: req.userId.id });
-    if (!event) {
-      return res.status(404).json({ message: " Event not exist", code: 2 });
-    }
-    if (eventName) {
-      event.eventName = eventName;
-    }
-    if (timeStart) {
-      event.timeStart = timeStart;
-    }
-    if (timeEnd) {
-      event.timeEnd = timeEnd;
-    }
-    if (city) {
-      event.city = city;
-    }
-    if (address) {
-      event.address = address;
-    }
-    if (description) {
-      event.description = description;
-    }
-
-    if (imageRemove) {
-      const listRemove = JSON.parse(imageRemove);
-      const promise = listRemove.map(async (urlImageRemove, index) => {
-        const fileUrl = urlImageRemove.split("/");
-        const originalName = fileUrl[5].split("?")[0];
-        const path = fileUrl[4] + "/" + originalName;
-        await deleteFile(path);
-      });
-      await Promise.all(promise);
-
-      event.wallImg = event.wallImg.filter(
-        (item) => !listRemove.includes(item)
-      );
-    }
-    if (newFile) {
-      const promises = newFile.map(async (file, index) => {
-        const url = await changeFile(
-          file,
-          index,
-          event.filePath,
-          event.__v + 1
-        );
-        return url;
-      });
-      const urlFile = await Promise.all(promises);
-      event.wallImg = [...event.wallImg, ...urlFile];
-    }
-    await event.save();
-    return res
-      .status(200)
-      .json({ message: "Success register", code: 0, event: event });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Server error", code: 4 });
-  }
-};
 
 export const getEventById = async (req, res) => {
   const eventId = req.params.eventId;

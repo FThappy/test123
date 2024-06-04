@@ -12,7 +12,6 @@ import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import http from "http";
 import jwt from "jsonwebtoken";
-import admin from "./config/firebase.js";
 
 // import {
 //   changeComment,
@@ -24,7 +23,6 @@ import admin from "./config/firebase.js";
 // } from "./utils/socket.js";
 const app = express();
 dotenv.config();
-const bucket = admin.storage().bucket();
 
 mongoose
   .connect(process.env.MONGODB_URL)
