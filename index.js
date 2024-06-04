@@ -6,7 +6,7 @@ import authRoute from "./routes/auth.route.js";
 // import postRoute from "./routes/post.route.js";
 // import userRoute from "./routes/user.route.js";
 // import reportRoute from "./routes/report.route.js";
-// import eventRoute from "./routes/event.route.js";
+import eventRoute from "./routes/event.route.js";
 // import projectRoute from "./routes/project.route.js";
 import testRoute from "./routes/test.route.js";
 import cookieParser from "cookie-parser";
@@ -84,7 +84,7 @@ app.use("/api/auth", authRoute);
 // app.use("/api/post", postRoute);
 // app.use("/api/user", userRoute);
 // app.use("/api/report", reportRoute);
-// app.use("/api/event", eventRoute);
+app.use("/api/event", eventRoute);
 // app.use("/api/project", projectRoute);
 app.use("/api/test",testRoute)
 
