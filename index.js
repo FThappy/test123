@@ -8,6 +8,7 @@ import cors from "cors";
 // import reportRoute from "./routes/report.route.js";
 // import eventRoute from "./routes/event.route.js";
 // import projectRoute from "./routes/project.route.js";
+import testRoute from "./routes/test.route.js";
 import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import http from "http";
@@ -79,13 +80,13 @@ const io = new Server(server, {
 // io.on("connection", onConnection);
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api/auth", authRoute);
-app.use("/api/post", postRoute);
-app.use("/api/user", userRoute);
-app.use("/api/report", reportRoute);
-app.use("/api/event", eventRoute);
-app.use("/api/project", projectRoute);
-
+// app.use("/api/auth", authRoute);
+// app.use("/api/post", postRoute);
+// app.use("/api/user", userRoute);
+// app.use("/api/report", reportRoute);
+// app.use("/api/event", eventRoute);
+// app.use("/api/project", projectRoute);
+app.use("/api/test",testRoute)
 
 app.get("/api", function(req, res){
   return res.status(200).json({ message: "Success" });
