@@ -40,17 +40,17 @@ router.post("/owner/search",verifyToken , eventSearchOwner)
 router.get("/user-event",verifyToken , getEventUserJoin)
 router.get("/user-event/total-page", verifyToken , getTotalPageEventUserJoin)
 
-// router.post("/search",eventSearch)
-// router.post("/join", verifyToken, createJoinEvent);
-// router.delete("/join", verifyToken, deleteJoinEvent);
-// router.delete("/join-owner", verifyToken, deleteJoinEventByOwner);
-// router.delete("", verifyToken, deleteEventById);
-// router.get("/total-join", getCountUserJoinEvent);
-// router.get("/list-users", getUserJoinEvent);
-// router.get("/join", verifyToken, getJoinById);
-// router.get("/total", getTotalPageEvent);
-// router.get("/:eventId", getEventById)
-// router.get("", getEvent);
+router.post("/search",eventSearch)
+router.post("/join", verifyToken, createJoinEvent);
+router.delete("/join", verifyToken, deleteJoinEvent);
+router.delete("/join-owner", verifyToken, deleteJoinEventByOwner);
+router.delete("", verifyToken, deleteEventById);
+router.get("/total-join", getCountUserJoinEvent);
+router.get("/list-users", getUserJoinEvent);
+router.get("/join", verifyToken, getJoinById);
+router.get("/total", getTotalPageEvent);
+router.get("/:eventId", getEventById)
+router.get("", getEvent);
 
 
 
