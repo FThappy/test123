@@ -87,7 +87,8 @@ app.use(cookieParser());
 
 
 app.get("/api", function(req, res){
-  return res.status(200).body("alo")
+  return res.status(200).json({ message: "Success" });
+
 })
 
 
