@@ -2,12 +2,12 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-// import authRoute from "./routes/auth.route.js";
-// import postRoute from "./routes/post.route.js";
-// import userRoute from "./routes/user.route.js";
-// import reportRoute from "./routes/report.route.js";
-// import eventRoute from "./routes/event.route.js";
-// import projectRoute from "./routes/project.route.js";
+import authRoute from "./routes/auth.route.js";
+import postRoute from "./routes/post.route.js";
+import userRoute from "./routes/user.route.js";
+import reportRoute from "./routes/report.route.js";
+import eventRoute from "./routes/event.route.js";
+import projectRoute from "./routes/project.route.js";
 import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import http from "http";
@@ -79,12 +79,12 @@ const io = new Server(server, {
 // io.on("connection", onConnection);
 app.use(express.json());
 app.use(cookieParser());
-// app.use("/api/auth", authRoute);
-// app.use("/api/post", postRoute);
-// app.use("/api/user", userRoute);
-// app.use("/api/report", reportRoute);
-// app.use("/api/event", eventRoute);
-// app.use("/api/project", projectRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/post", postRoute);
+app.use("/api/user", userRoute);
+app.use("/api/report", reportRoute);
+app.use("/api/event", eventRoute);
+app.use("/api/project", projectRoute);
 
 
 app.get("/api", function(req, res){
