@@ -1,34 +1,14 @@
-import express from "express";
-import multer from "multer";
-import { verifyToken } from "../middleware/verifyToken.js";
+// import express from "express";
+// import multer from "multer";
+// import { verifyToken } from "../middleware/verifyToken.js";
 
-import { multerError } from "../utils/multerError.js";
-import { getEvent } from "../controllers/event.controller.js";
+// import { multerError } from "../utils/multerError.js";
+// import { createEvent, createJoinEvent, deleteEventById, deleteJoinEvent, deleteJoinEventByOwner, eventSearch, eventSearchOwner, getCountUserJoinEvent, getEvent, getEventById, getEventOwner, getEventUserJoin, getJoinById, getTotalPageEvent, getTotalPageEventOwner, getTotalPageEventUserJoin, getUserJoinEvent,  updateEvent } from "../controllers/event.controller.js";
 
-// import {
-// createEvent,
-//   createJoinEvent,
-//   deleteEventById,
-//   deleteJoinEvent,
-//   deleteJoinEventByOwner,
-//   eventSearch,
-//   eventSearchOwner,
-//   getCountUserJoinEvent,
-//   getEvent,
-//   getEventById,
-//   getEventOwner,
-//   getEventUserJoin,
-//   getJoinById,
-//   getTotalPageEvent,
-//   getTotalPageEventOwner,
-//   getTotalPageEventUserJoin,
-//   getUserJoinEvent,
-//   updateEvent,
-// } from "../controllers/event.controller.js";
-
-const router = express.Router();
+// const router = express.Router();
 
 // const storage = multer.memoryStorage();
+// const upload = multer({ storage: storage });
 // const upload_image = multer({
 //   storage: storage,
 //   fileFilter: (req, file, cb) => {
@@ -55,13 +35,13 @@ const router = express.Router();
 //   verifyToken,
 //   updateEvent
 // );
-// router.get("/owner", verifyToken, getEventOwner);
-// router.get("/owner/total-page", verifyToken, getTotalPageEventOwner);
-// router.post("/owner/search", verifyToken, eventSearchOwner);
-// router.get("/user-event", verifyToken, getEventUserJoin);
-// router.get("/user-event/total-page", verifyToken, getTotalPageEventUserJoin);
+// router.get("/owner" ,verifyToken , getEventOwner)
+// router.get("/owner/total-page",verifyToken , getTotalPageEventOwner)
+// router.post("/owner/search",verifyToken , eventSearchOwner)
+// router.get("/user-event",verifyToken , getEventUserJoin)
+// router.get("/user-event/total-page", verifyToken , getTotalPageEventUserJoin)
 
-// router.post("/search", eventSearch);
+// router.post("/search",eventSearch)
 // router.post("/join", verifyToken, createJoinEvent);
 // router.delete("/join", verifyToken, deleteJoinEvent);
 // router.delete("/join-owner", verifyToken, deleteJoinEventByOwner);
@@ -70,7 +50,9 @@ const router = express.Router();
 // router.get("/list-users", getUserJoinEvent);
 // router.get("/join", verifyToken, getJoinById);
 // router.get("/total", getTotalPageEvent);
-// router.get("/:eventId", getEventById);
+// router.get("/:eventId", getEventById)
 // router.get("", getEvent);
 
-export default router;
+
+
+// export default router;

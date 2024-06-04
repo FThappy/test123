@@ -1,9 +1,9 @@
-import admin from "../config/firebase.js";
-import User from "../models/User.js";
-import { changeFile, deleteFile, uploadFile } from "../utils/file.js";
-import Post from "./../models/Post.js";
-import Event from "../models/Event.js";
-import Join from "../models/Join.js";
+// import admin from "../config/firebase.js";
+// import User from "../models/User.js";
+// import { changeFile, deleteFile, uploadFile } from "../utils/file.js";
+// import Post from "./../models/Post.js";
+// import Event from "../models/Event.js";
+// import Join from "../models/Join.js";
 
 // const bucket = admin.storage().bucket();../controllers/event.controller.js
 
