@@ -72,6 +72,6 @@ const upload_image = multer({
 // router.get("/join", verifyToken, getJoinById);
 // router.get("/total", getTotalPageEvent);
 // router.get("/:eventId", getEventById);
-router.get("", getEvent);
+// router.get("", getEvent);
 
 export default router;

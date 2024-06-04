@@ -162,22 +162,22 @@ import Join from "../models/Join.js";
 //   }
 // };
 
-export const getEvent = async (req, res) => {
-  const page = req.query.page;
-  try {
-    const skipEvent = page * NUMBER_EVENT;
-    const listEvent = await Event.find({ isDelete: false, isLock: false })
-      .sort({ _id: -1 })
-      .skip(skipEvent)
-      .limit(8);
-    return res
-      .status(200)
-      .json({ message: "Success", data: listEvent, code: 0 });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Server error", code: 4 });
-  }
-};
+// export const getEvent = async (req, res) => {
+//   const page = req.query.page;
+//   try {
+//     const skipEvent = page * 8;
+//     const listEvent = await Event.find({ isDelete: false, isLock: false })
+//       .sort({ _id: -1 })
+//       .skip(skipEvent)
+//       .limit(8);
+//     return res
+//       .status(200)
+//       .json({ message: "Success", data: listEvent, code: 0 });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500).json({ message: "Server error", code: 4 });
+//   }
+// };
 // export const getTotalPageEvent = async (req, res) => {
 //   try {
 //     const totalEvents = await Event.countDocuments({
