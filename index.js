@@ -78,8 +78,8 @@ const io = new Server(server, {
 // io.on("connection", onConnection);
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api/auth", authRoute);
-// app.use("/api/post", postRoute);
+// app.use("/api/auth", authRoute);
+app.use("/api/post", postRoute);
 // app.use("/api/user", userRoute);
 // app.use("/api/report", reportRoute);
 // app.use("/api/event", eventRoute);
