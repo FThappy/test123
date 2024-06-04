@@ -28,19 +28,18 @@ import { getEvent } from "../controllers/event.controller.js";
 
 const router = express.Router();
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-const upload_image = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype.startsWith("image/")) {
-      cb(null, true);
-    } else {
-      req.multerError = true;
-      cb(null, false, req.multerError);
-    }
-  },
-});
+// const storage = multer.memoryStorage();
+// const upload_image = multer({
+//   storage: storage,
+//   fileFilter: (req, file, cb) => {
+//     if (file.mimetype.startsWith("image/")) {
+//       cb(null, true);
+//     } else {
+//       req.multerError = true;
+//       cb(null, false, req.multerError);
+//     }
+//   },
+// });
 
 // router.post(
 //   "/",
